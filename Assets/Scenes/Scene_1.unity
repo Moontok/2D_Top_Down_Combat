@@ -33203,6 +33203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1920027301}
   - component: {fileID: 1920027302}
+  - component: {fileID: 1920027303}
   m_Layer: 5
   m_Name: Active Action Bar
   m_TagString: Untagged
@@ -33259,6 +33260,18 @@ MonoBehaviour:
   m_Spacing: {x: 25, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1920027303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920027300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2e885c48bf1c14c8089fceaa4d3892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1922560305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4141793119473615340, guid: f179492d7a03a89419e48db33cfc46f7, type: 3}
