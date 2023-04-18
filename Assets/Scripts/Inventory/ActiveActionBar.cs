@@ -17,6 +17,8 @@ public class ActiveActionBar : MonoBehaviour
     private void Start()
     {
         playerControls.ActionBar.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+
+        ToggleAcitveHightlight(0);
     }
 
     private void OnEnable()
@@ -39,5 +41,28 @@ public class ActiveActionBar : MonoBehaviour
         }
 
         this.transform.GetChild(activeSlotIndexNum).GetChild(0).gameObject.SetActive(true);
+
+        ChangeActiveWeapon();
+    }
+
+    private void ChangeActiveWeapon()
+    {
+        if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
+        {
+            Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
+        }
+
+        if (!this.transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>())
+        {
+            ActiveWeapon.Instance.WeaponNull();
+            return;
+        }
+
+        GameObject weaponToSpawn = this.transform.GetChild(activeSlotIndexNum).GetComponent<InventorySlot>().GetWeaponInfo().weaponPrefab;
+
+        GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
+        newWeapon.transform.parent = ActiveWeapon.Instance.transform;
+
+        ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
 }

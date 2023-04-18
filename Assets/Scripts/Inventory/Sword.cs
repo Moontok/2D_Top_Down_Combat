@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashAnimPrefab = null;
     [SerializeField] private Transform slashAnimSpawnPoint = null;
     [SerializeField] private Transform weaponCollider = null;
     [SerializeField] private float swordAttackCD = .5f;
 
-    private PlayerControls playerControls = null;
     private Animator myAnimator = null;
     private PlayerController playerController = null;
     private ActiveWeapon activeWeapon = null;
-    private bool attackButtonDown = false;
-    private bool isAttacking = false;
 
     private GameObject slashAnim = null;
 
@@ -23,41 +20,16 @@ public class Sword : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
         myAnimator = GetComponent<Animator>();
-        playerControls = new PlayerControls();
-    }
-
-    private void OnEnable()
-    {
-        playerControls.Enable();
-    }
-
-    private void Start()
-    {
-        playerControls.Combat.Attack.started += _ => StartAttacking();
-        playerControls.Combat.Attack.canceled += _ => StopAttacking();
     }
 
     private void Update()
     {
         MouseFollowWithOffset();
-        Attack();
     }
 
-    private void StartAttacking()
+    public void Attack()
     {
-        attackButtonDown = true;
-    }
-
-    private void StopAttacking()
-    {
-        attackButtonDown = false;
-    }
-
-    private void Attack()
-    {
-        if (!attackButtonDown || isAttacking) return;
-
-        isAttacking = true;
+        // isAttacking = true;
 
         myAnimator.SetTrigger("Attack");
         weaponCollider.gameObject.SetActive(true);
@@ -70,7 +42,7 @@ public class Sword : MonoBehaviour
     private IEnumerator AttackCDRoutine()
     {
         yield return new WaitForSeconds(swordAttackCD);
-        isAttacking = false;
+        ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 
     public void DoneAttackingAnimEvent()
