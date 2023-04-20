@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float dashTime = .2f;
     [SerializeField] private float dashCD = .25f;
     [SerializeField] private TrailRenderer myTrailRenderer = null;
+    [SerializeField] private Transform weaponCollider = null;
+    [SerializeField] private Transform animSpawnPoint = null;
 
     private float moveSpeed = 1f;
     private PlayerControls playerControls = null;
@@ -18,8 +21,8 @@ public class PlayerController : Singleton<PlayerController>
     private Rigidbody2D rb = null;
     private Animator myAnimator = null;
     private SpriteRenderer mySpriteRenderer = null;
+    
     private bool isDashing = false;
-
     private bool facingLeft = false;
 
     protected override void Awake()
@@ -52,6 +55,16 @@ public class PlayerController : Singleton<PlayerController>
     {
         AdjustPlayerFacingDirection();
         Move();
+    }
+
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
+    }
+
+    internal Transform GetAnimSpawnPoint()
+    {
+        return animSpawnPoint;
     }
 
     private void PlayerInput()

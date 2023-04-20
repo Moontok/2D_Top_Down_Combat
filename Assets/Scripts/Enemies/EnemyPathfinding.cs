@@ -9,11 +9,13 @@ public class EnemyPathfinding : MonoBehaviour
     private Rigidbody2D rb = null;
     private Vector2 moveDir = Vector2.zero;
     private Knockback knockback = null;
+    private SpriteRenderer spriteRenderer = null;
 
     private void Awake()
     {
         knockback = GetComponent<Knockback>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -21,6 +23,15 @@ public class EnemyPathfinding : MonoBehaviour
         if (knockback.GettingKnockedBack) return;
 
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
+
+        if (moveDir.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public void MoveTo(Vector2 targetPosition)
