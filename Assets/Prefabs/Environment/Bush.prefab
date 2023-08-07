@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4318765566406273313}
   - component: {fileID: 595828120308077607}
   - component: {fileID: 1137831933503031163}
+  - component: {fileID: -8733936047445524835}
   m_Layer: 0
   m_Name: Bush
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7316773517006883305}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4318765566406273313
 SpriteRenderer:
@@ -94,6 +95,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7316773517006883305}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -117,7 +119,8 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
@@ -134,3 +137,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyVFX: {fileID: 1401764285156659991, guid: f76ca0030d57d214ca266ffdffdf8843, type: 3}
+--- !u!114 &-8733936047445524835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316773517006883305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c472e615c55daa469e0491d409e7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - {fileID: 3943236649997877601, guid: 3f3b53e124dbbe44bb1c818826f312de, type: 3}
+  - {fileID: 3943236649997877601, guid: 3f3b53e124dbbe44bb1c818826f312de, type: 3}
+  - {fileID: 3943236649997877601, guid: f291946d7bd28e148806301c6fdad015, type: 3}
+  - {fileID: 3943236649997877601, guid: 30e1b513911d6d543b8d634ef2d92ca4, type: 3}
+  noDropChance: 1
