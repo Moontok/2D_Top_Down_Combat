@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 6902533856003743533}
   - component: {fileID: 5442857804932440840}
   - component: {fileID: 286716035712804178}
+  - component: {fileID: -7557412972806844024}
   m_Layer: 0
   m_Name: Grape
   m_TagString: Untagged
@@ -375,3 +376,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grapeProjectilePrefab: {fileID: 9154567908061597993, guid: 2a924d5d37780704580b721ba274d7e9, type: 3}
+--- !u!114 &-7557412972806844024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442989541160937387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c472e615c55daa469e0491d409e7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - {fileID: 3943236649997877601, guid: 3f3b53e124dbbe44bb1c818826f312de, type: 3}
+  - {fileID: 3943236649997877601, guid: 3f3b53e124dbbe44bb1c818826f312de, type: 3}
+  - {fileID: 3943236649997877601, guid: f291946d7bd28e148806301c6fdad015, type: 3}
+  - {fileID: 3943236649997877601, guid: 30e1b513911d6d543b8d634ef2d92ca4, type: 3}
+  noDropChance: 1

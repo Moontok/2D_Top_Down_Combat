@@ -14,7 +14,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] private PickupType pickupType = PickupType.GoldCoin;
     [SerializeField] private float pickupDistance = 5f;
     [SerializeField] private float accelarationRate = .2f;
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float moveSpeed = 20f;
     [SerializeField] private AnimationCurve animCurve = null;
     [SerializeField] private float heightY = 1.5f;
     [SerializeField] private float maxDistanceAway = .2f;
@@ -89,14 +89,13 @@ public class Pickup : MonoBehaviour
         switch (pickupType)
         {
             case PickupType.GoldCoin:
-                Debug.Log("Gold Coin");
+                EconomyManager.Instance.UpdateCurrentGold();
                 break;
             case PickupType.HealthGlobe:
                 PlayerHealth.Instance.HealPlayer();
-                Debug.Log("Health Globe");
                 break;
             case PickupType.StaminaGlobe:
-                Debug.Log("Stamina Globe");
+                Stamina.Instance.RefreshStamina(1);
                 break;
         }
     }

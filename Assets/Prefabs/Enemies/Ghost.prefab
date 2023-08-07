@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 1901425794774459372}
   - component: {fileID: 6298913922664583600}
   - component: {fileID: 2637447075974705279}
+  - component: {fileID: 8897763022497924192}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -175,6 +176,7 @@ MonoBehaviour:
   attackRange: 5
   enemyType: {fileID: 2637447075974705279}
   attackCooldown: 2
+  stopMovingWhileAttacking: 0
 --- !u!114 &1168023919620368390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +269,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1666387496882526843, guid: 4930d7ff618516e408e04252da79d1ce, type: 3}
+  bulletMoveSpeed: 5
+  burstCount: 1
+  projectilesPerBurst: 1
+  angleSpread: 0
+  startingDistance: 0.1
+  timeBetweenBursts: 1
+  restTime: 1
+  stagger: 0
+  oscillate: 0
+--- !u!114 &8897763022497924192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7241417868277117434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c472e615c55daa469e0491d409e7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - {fileID: 3943236649997877601, guid: 3f3b53e124dbbe44bb1c818826f312de, type: 3}
+  - {fileID: 3943236649997877601, guid: 3f3b53e124dbbe44bb1c818826f312de, type: 3}
+  - {fileID: 3943236649997877601, guid: f291946d7bd28e148806301c6fdad015, type: 3}
+  - {fileID: 3943236649997877601, guid: 30e1b513911d6d543b8d634ef2d92ca4, type: 3}
+  noDropChance: 1
 --- !u!1 &7821251419178623044
 GameObject:
   m_ObjectHideFlags: 0
