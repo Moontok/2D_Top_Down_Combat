@@ -97,6 +97,8 @@ public class Pickup : MonoBehaviour
             case PickupType.StaminaGlobe:
                 Stamina.Instance.RefreshStamina(1);
                 break;
+            default:
+                break;
         }
     }
 }

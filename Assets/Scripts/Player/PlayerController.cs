@@ -41,11 +41,18 @@ public class PlayerController : Singleton<PlayerController>
     {
         moveSpeed = baseSpeed;
         playerControls.Combat.Dash.performed += _ => Dash();
+
+        ActiveActionBar.Instance.EquipStartingWeapon();
     }
 
     private void OnEnable()
     {
         playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 
     private void Update()
@@ -55,6 +62,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
+        if (PlayerHealth.Instance.IsDead) return;
+
         AdjustPlayerFacingDirection();
         Move();
     }
